@@ -1,7 +1,9 @@
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
+from pathlib import Path
 
 from fastapi import Depends, FastAPI, HTTPException
+from fastapi.staticfiles import StaticFiles
 from sqlalchemy import func, text
 from sqlalchemy.orm import Session
 
@@ -30,6 +32,10 @@ from app.schemas import (
 )
 
 from app.security import verify_api_key
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DASHBOARD_DIR = BASE_DIR / "dashboard"
 
 
 def intersection_to_dict(row):
@@ -93,9 +99,7 @@ def osm_feature_to_dict(row):
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    Base.metadata.create_all(
-        bind=engine
-    )
+    Base.metadata.create_all(bind=engine)
 
     db = SessionLocal()
 
@@ -128,8 +132,18 @@ app = FastAPI(
         "Urban mobility and intelligent traffic "
         "management platform for Kinshasa"
     ),
-    version="0.5.0",
+    version="0.6.0",
     lifespan=lifespan,
+)
+
+
+app.mount(
+    "/dashboard",
+    StaticFiles(
+        directory=str(DASHBOARD_DIR),
+        html=True,
+    ),
+    name="dashboard",
 )
 
 
@@ -137,10 +151,12 @@ app = FastAPI(
 def home():
     return {
         "project": "KinTraffic",
-        "version": "0.5.0",
+        "version": "0.6.0",
         "status": "online",
         "city": "Kinshasa",
         "database": "PostgreSQL",
+        "dashboard": "/dashboard/",
+        "documentation": "/docs",
         "features": [
             "traffic",
             "intersections",
@@ -148,6 +164,7 @@ def home():
             "traffic lights",
             "analytics",
             "OpenStreetMap geographic data",
+            "control center dashboard",
         ],
     }
 
@@ -156,13 +173,12 @@ def home():
 def health(
     db: Session = Depends(get_db),
 ):
-    db.execute(
-        text("SELECT 1")
-    )
+    db.execute(text("SELECT 1"))
 
     return {
         "status": "healthy",
         "database": "connected",
+        "version": "0.6.0",
     }
 
 
@@ -190,8 +206,7 @@ def get_intersection(
     row = (
         db.query(Intersection)
         .filter(
-            Intersection.id
-            == intersection_id
+            Intersection.id == intersection_id
         )
         .first()
     )
@@ -212,9 +227,7 @@ def get_intersection(
 def create_intersection(
     payload: IntersectionCreate,
     db: Session = Depends(get_db),
-    api_key: str = Depends(
-        verify_api_key
-    ),
+    api_key: str = Depends(verify_api_key),
 ):
     row = Intersection(
         name=payload.name,
@@ -259,9 +272,7 @@ def get_traffic(
 def create_traffic_observation(
     payload: TrafficObservationCreate,
     db: Session = Depends(get_db),
-    api_key: str = Depends(
-        verify_api_key
-    ),
+    api_key: str = Depends(verify_api_key),
 ):
     intersection = (
         db.query(Intersection)
@@ -360,9 +371,7 @@ def get_incidents(
 def create_incident(
     payload: IncidentCreate,
     db: Session = Depends(get_db),
-    api_key: str = Depends(
-        verify_api_key
-    ),
+    api_key: str = Depends(verify_api_key),
 ):
     intersection = (
         db.query(Intersection)
@@ -404,9 +413,7 @@ def update_incident_status(
     incident_id: int,
     payload: IncidentStatusUpdate,
     db: Session = Depends(get_db),
-    api_key: str = Depends(
-        verify_api_key
-    ),
+    api_key: str = Depends(verify_api_key),
 ):
     row = (
         db.query(Incident)
@@ -425,8 +432,8 @@ def update_incident_status(
     row.status = payload.status
 
     if payload.status == "resolved":
-        row.resolved_at = (
-            datetime.now(timezone.utc)
+        row.resolved_at = datetime.now(
+            timezone.utc
         )
 
     elif row.resolved_at is not None:
@@ -464,9 +471,7 @@ def get_traffic_lights(
 def create_traffic_light(
     payload: TrafficLightCreate,
     db: Session = Depends(get_db),
-    api_key: str = Depends(
-        verify_api_key
-    ),
+    api_key: str = Depends(verify_api_key),
 ):
     intersection = (
         db.query(Intersection)
@@ -527,9 +532,7 @@ def update_traffic_light(
     traffic_light_id: int,
     payload: TrafficLightUpdate,
     db: Session = Depends(get_db),
-    api_key: str = Depends(
-        verify_api_key
-    ),
+    api_key: str = Depends(verify_api_key),
 ):
     row = (
         db.query(TrafficLight)
@@ -574,9 +577,7 @@ def get_map_features(
     feature_type: str | None = None,
     db: Session = Depends(get_db),
 ):
-    query = db.query(
-        OSMFeature
-    )
+    query = db.query(OSMFeature)
 
     if feature_type:
         query = query.filter(
@@ -619,9 +620,7 @@ def analytics_summary(
 
     observations = (
         db.query(
-            func.count(
-                TrafficObservation.id
-            )
+            func.count(TrafficObservation.id)
         )
         .scalar()
         or 0
@@ -667,6 +666,30 @@ def analytics_summary(
         or 0
     )
 
+    traffic_signals = (
+        db.query(
+            func.count(OSMFeature.id)
+        )
+        .filter(
+            OSMFeature.feature_type
+            == "traffic_signal"
+        )
+        .scalar()
+        or 0
+    )
+
+    roundabouts = (
+        db.query(
+            func.count(OSMFeature.id)
+        )
+        .filter(
+            OSMFeature.feature_type
+            == "roundabout"
+        )
+        .scalar()
+        or 0
+    )
+
     average_speed = (
         db.query(
             func.avg(
@@ -683,6 +706,8 @@ def analytics_summary(
         "active_incidents": active_incidents,
         "traffic_lights": traffic_lights,
         "osm_features": osm_features,
+        "traffic_signals": traffic_signals,
+        "roundabouts": roundabouts,
         "average_speed": (
             round(
                 float(average_speed),

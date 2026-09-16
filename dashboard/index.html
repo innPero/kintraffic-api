@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#07111f"
+    >
+
+    <title>KinTraffic Control Center</title>
+
+    <link
+        rel="preconnect"
+        href="https://unpkg.com"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="./css/style.css"
+    >
+</head>
+
+<body>
+
+<div id="errorBanner" class="error-banner hidden">
+    Impossible de charger certaines données.
+</div>
+
+<header class="topbar">
+
+    <div class="brand">
+        <div class="logo">
+            <span class="logo-light red"></span>
+            <span class="logo-light yellow"></span>
+            <span class="logo-light green"></span>
+        </div>
+
+        <div>
+            <h1>KinTraffic</h1>
+            <p>Urban Mobility Control Center</p>
+        </div>
+    </div>
+
+    <div class="topbar-actions">
+
+        <div
+            id="systemStatus"
+            class="status-pill loading"
+        >
+            <span class="status-dot"></span>
+            <span id="systemStatusText">
+                Connexion...
+            </span>
+        </div>
+
+        <button
+            id="refreshButton"
+            class="refresh-button"
+            type="button"
+        >
+            ↻ Actualiser
+        </button>
+
+    </div>
+
+</header>
+
+
+<main class="dashboard">
+
+    <section class="hero">
+
+        <div>
+            <span class="eyebrow">
+                KINSHASA • RDC
+            </span>
+
+            <h2>
+                Intelligence de mobilité urbaine
+            </h2>
+
+            <p>
+                Visualisation des infrastructures,
+                observations de trafic, incidents
+                et données géographiques KinTraffic.
+            </p>
+        </div>
+
+        <div class="last-update">
+            <span>Dernière synchronisation</span>
+            <strong id="lastUpdate">--</strong>
+        </div>
+
+    </section>
+
+
+    <section class="metrics">
+
+        <article class="metric-card">
+            <div class="metric-icon">◎</div>
+
+            <div>
+                <span class="metric-label">
+                    Points OSM
+                </span>
+
+                <strong
+                    id="metricOsm"
+                    class="metric-value"
+                >
+                    --
+                </strong>
+            </div>
+        </article>
+
+
+        <article class="metric-card">
+            <div class="metric-icon">🚦</div>
+
+            <div>
+                <span class="metric-label">
+                    Feux OSM
+                </span>
+
+                <strong
+                    id="metricSignals"
+                    class="metric-value"
+                >
+                    --
+                </strong>
+            </div>
+        </article>
+
+
+        <article class="metric-card">
+            <div class="metric-icon">⟳</div>
+
+            <div>
+                <span class="metric-label">
+                    Ronds-points
+                </span>
+
+                <strong
+                    id="metricRoundabouts"
+                    class="metric-value"
+                >
+                    --
+                </strong>
+            </div>
+        </article>
+
+
+        <article class="metric-card">
+            <div class="metric-icon">🚗</div>
+
+            <div>
+                <span class="metric-label">
+                    Observations
+                </span>
+
+                <strong
+                    id="metricObservations"
+                    class="metric-value"
+                >
+                    --
+                </strong>
+            </div>
+        </article>
+
+
+        <article class="metric-card">
+            <div class="metric-icon">⚠</div>
+
+            <div>
+                <span class="metric-label">
+                    Incidents actifs
+                </span>
+
+                <strong
+                    id="metricIncidents"
+                    class="metric-value"
+                >
+                    --
+                </strong>
+            </div>
+        </article>
+
+
+        <article class="metric-card">
+            <div class="metric-icon">㎞</div>
+
+            <div>
+                <span class="metric-label">
+                    Vitesse moyenne
+                </span>
+
+                <strong
+                    id="metricSpeed"
+                    class="metric-value"
+                >
+                    --
+                </strong>
+            </div>
+        </article>
+
+    </section>
+
+
+    <section class="map-section">
+
+        <div class="map-card">
+
+            <div class="map-toolbar">
+
+                <div>
+                    <h3>
+                        Carte opérationnelle
+                    </h3>
+
+                    <p>
+                        Données OpenStreetMap et KinTraffic
+                    </p>
+                </div>
+
+                <div class="map-controls">
+
+                    <input
+                        id="mapSearch"
+                        class="map-search"
+                        type="search"
+                        placeholder="Rechercher un point..."
+                    >
+
+                    <label class="filter-control">
+                        <input
+                            id="filterSignals"
+                            type="checkbox"
+                            checked
+                        >
+                        <span>Feux</span>
+                    </label>
+
+                    <label class="filter-control">
+                        <input
+                            id="filterRoundabouts"
+                            type="checkbox"
+                            checked
+                        >
+                        <span>Ronds-points</span>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <div id="map"></div>
+
+
+            <div class="map-footer">
+
+                <div class="legend">
+
+                    <span>
+                        <i class="legend-dot signal"></i>
+                        Feu
+                    </span>
+
+                    <span>
+                        <i class="legend-dot roundabout"></i>
+                        Rond-point
+                    </span>
+
+                </div>
+
+                <span class="osm-attribution">
+                    © OpenStreetMap contributors
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <aside class="side-panel">
+
+            <div class="panel-card">
+
+                <div class="panel-header">
+                    <div>
+                        <h3>État du réseau</h3>
+                        <p>Résumé opérationnel</p>
+                    </div>
+
+                    <span class="live-badge">
+                        LIVE
+                    </span>
+                </div>
+
+                <div class="network-status">
+
+                    <div class="network-row">
+                        <span>API KinTraffic</span>
+                        <strong id="apiState">
+                            Vérification...
+                        </strong>
+                    </div>
+
+                    <div class="network-row">
+                        <span>PostgreSQL</span>
+                        <strong id="databaseState">
+                            Vérification...
+                        </strong>
+                    </div>
+
+                    <div class="network-row">
+                        <span>Feux enregistrés</span>
+                        <strong id="registeredLights">
+                            --
+                        </strong>
+                    </div>
+
+                    <div class="network-row">
+                        <span>Carrefours internes</span>
+                        <strong id="registeredIntersections">
+                            --
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="panel-card">
+
+                <div class="panel-header">
+                    <div>
+                        <h3>Incidents récents</h3>
+                        <p>Derniers signalements</p>
+                    </div>
+                </div>
+
+                <div
+                    id="incidentList"
+                    class="compact-list"
+                >
+                    <div class="empty-state">
+                        Chargement...
+                    </div>
+                </div>
+
+            </div>
+
+        </aside>
+
+    </section>
+
+
+    <section class="data-grid">
+
+        <article class="data-card">
+
+            <div class="panel-header">
+                <div>
+                    <h3>
+                        Observations trafic
+                    </h3>
+
+                    <p>
+                        Dernières mesures enregistrées
+                    </p>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Carrefour</th>
+                            <th>Véhicules</th>
+                            <th>Vitesse</th>
+                            <th>Congestion</th>
+                            <th>Heure</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="trafficTable">
+                        <tr>
+                            <td colspan="5">
+                                Chargement...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </article>
+
+
+        <article class="data-card">
+
+            <div class="panel-header">
+                <div>
+                    <h3>
+                        Feux KinTraffic
+                    </h3>
+
+                    <p>
+                        Contrôleurs enregistrés
+                    </p>
+                </div>
+            </div>
+
+            <div
+                id="trafficLightList"
+                class="compact-list"
+            >
+                <div class="empty-state">
+                    Chargement...
+                </div>
+            </div>
+
+        </article>
+
+    </section>
+
+</main>
+
+
+<footer class="footer">
+
+    <div>
+        <strong>KinTraffic 0.6</strong>
+        <span>
+            Intelligent Urban Mobility Platform
+        </span>
+    </div>
+
+    <div>
+        Kinshasa • République démocratique du Congo
+    </div>
+
+</footer>
+
+
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+></script>
+
+<script src="./js/app.js"></script>
+
+</body>
+</html>
