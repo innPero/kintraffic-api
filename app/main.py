@@ -1,52 +1,100 @@
 from contextlib import asynccontextmanager
+from datetime import datetime, timezone
 
 from fastapi import Depends, FastAPI, HTTPException
-from pydantic import BaseModel, Field
 from sqlalchemy import func, text
 from sqlalchemy.orm import Session
 
-from app.database import Base, SessionLocal, engine, get_db
-from app.models import Intersection, TrafficObservation
+from app.database import (
+    Base,
+    SessionLocal,
+    engine,
+    get_db,
+)
+from app.models import (
+    Incident,
+    Intersection,
+    TrafficLight,
+    TrafficObservation,
+)
+from app.schemas import (
+    IncidentCreate,
+    IncidentStatusUpdate,
+    IntersectionCreate,
+    TrafficLightCreate,
+    TrafficLightUpdate,
+    TrafficObservationCreate,
+)
+from app.security import verify_api_key
 
 
-class TrafficObservationCreate(BaseModel):
-    intersection_id: int
-    vehicle_count: int = Field(ge=0)
-    average_speed: float = Field(ge=0)
-    congestion_level: str
-
-
-def observation_to_dict(record):
+def intersection_to_dict(row):
     return {
-        "id": record.id,
-        "intersection_id": record.intersection_id,
-        "vehicle_count": record.vehicle_count,
-        "average_speed": record.average_speed,
-        "congestion_level": record.congestion_level,
-        "timestamp": record.timestamp,
+        "id": row.id,
+        "name": row.name,
+        "city": row.city,
+        "latitude": row.latitude,
+        "longitude": row.longitude,
+    }
+
+
+def observation_to_dict(row):
+    return {
+        "id": row.id,
+        "intersection_id": row.intersection_id,
+        "vehicle_count": row.vehicle_count,
+        "average_speed": row.average_speed,
+        "congestion_level": row.congestion_level,
+        "timestamp": row.timestamp,
+    }
+
+
+def incident_to_dict(row):
+    return {
+        "id": row.id,
+        "intersection_id": row.intersection_id,
+        "type": row.incident_type,
+        "severity": row.severity,
+        "description": row.description,
+        "status": row.status,
+        "reported_at": row.reported_at,
+        "resolved_at": row.resolved_at,
+    }
+
+
+def traffic_light_to_dict(row):
+    return {
+        "id": row.id,
+        "intersection_id": row.intersection_id,
+        "current_phase": row.current_phase,
+        "green_duration": row.green_duration,
+        "yellow_duration": row.yellow_duration,
+        "red_duration": row.red_duration,
+        "status": row.status,
+        "updated_at": row.updated_at,
     }
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-
     Base.metadata.create_all(bind=engine)
 
     db = SessionLocal()
 
     try:
         if db.query(Intersection).count() == 0:
-
-            db.add_all([
-                Intersection(
-                    name="Rond-point Victoire",
-                    city="Kinshasa"
-                ),
-                Intersection(
-                    name="Rond-point Ngaba",
-                    city="Kinshasa"
-                )
-            ])
+            db.add_all(
+                [
+                    Intersection(
+                        name="Rond-point Victoire",
+                        city="Kinshasa",
+                    ),
+                    Intersection(
+                        name="Rond-point Ngaba",
+                        city="Kinshasa",
+                    ),
+                ]
+            )
 
             db.commit()
 
@@ -58,8 +106,11 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="KinTraffic API",
-    description="Intelligent traffic management platform for Kinshasa",
-    version="0.2.0",
+    description=(
+        "Urban mobility and intelligent traffic "
+        "management platform for Kinshasa"
+    ),
+    version="0.4.0",
     lifespan=lifespan,
 )
 
@@ -68,109 +119,483 @@ app = FastAPI(
 def home():
     return {
         "project": "KinTraffic",
-        "version": "0.2.0",
+        "version": "0.4.0",
         "status": "online",
         "city": "Kinshasa",
         "database": "PostgreSQL",
-        "message": "KinTraffic API is running"
+        "features": [
+            "traffic",
+            "intersections",
+            "incidents",
+            "traffic lights",
+            "analytics",
+        ],
     }
 
 
 @app.get("/health")
-def health(db: Session = Depends(get_db)):
-
+def health(
+    db: Session = Depends(get_db),
+):
     db.execute(text("SELECT 1"))
 
     return {
         "status": "healthy",
-        "database": "connected"
+        "database": "connected",
     }
 
 
 @app.get("/intersections")
-def get_intersections(db: Session = Depends(get_db)):
-
-    rows = db.query(Intersection).order_by(Intersection.id).all()
+def get_intersections(
+    db: Session = Depends(get_db),
+):
+    rows = (
+        db.query(Intersection)
+        .order_by(Intersection.id)
+        .all()
+    )
 
     return [
-        {
-            "id": row.id,
-            "name": row.name,
-            "city": row.city,
-            "latitude": row.latitude,
-            "longitude": row.longitude
-        }
+        intersection_to_dict(row)
         for row in rows
     ]
 
 
-@app.get("/traffic")
-def get_traffic(db: Session = Depends(get_db)):
+@app.get("/intersections/{intersection_id}")
+def get_intersection(
+    intersection_id: int,
+    db: Session = Depends(get_db),
+):
+    row = (
+        db.query(Intersection)
+        .filter(
+            Intersection.id == intersection_id
+        )
+        .first()
+    )
 
+    if row is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Intersection not found",
+        )
+
+    return intersection_to_dict(row)
+
+
+@app.post(
+    "/intersections",
+    status_code=201,
+)
+def create_intersection(
+    payload: IntersectionCreate,
+    db: Session = Depends(get_db),
+    api_key: str = Depends(verify_api_key),
+):
+    row = Intersection(
+        name=payload.name,
+        city=payload.city,
+        latitude=payload.latitude,
+        longitude=payload.longitude,
+    )
+
+    db.add(row)
+    db.commit()
+    db.refresh(row)
+
+    return {
+        "message": "Intersection created",
+        "data": intersection_to_dict(row),
+    }
+
+
+@app.get("/traffic")
+def get_traffic(
+    db: Session = Depends(get_db),
+):
     rows = (
         db.query(TrafficObservation)
-        .order_by(TrafficObservation.timestamp.desc())
+        .order_by(
+            TrafficObservation.timestamp.desc()
+        )
         .limit(100)
         .all()
     )
 
-    return [observation_to_dict(row) for row in rows]
+    return [
+        observation_to_dict(row)
+        for row in rows
+    ]
 
 
-@app.post("/traffic")
+@app.post(
+    "/traffic",
+    status_code=201,
+)
 def create_traffic_observation(
-    observation: TrafficObservationCreate,
-    db: Session = Depends(get_db)
+    payload: TrafficObservationCreate,
+    db: Session = Depends(get_db),
+    api_key: str = Depends(verify_api_key),
 ):
-
     intersection = (
         db.query(Intersection)
-        .filter(Intersection.id == observation.intersection_id)
+        .filter(
+            Intersection.id
+            == payload.intersection_id
+        )
         .first()
     )
 
     if intersection is None:
         raise HTTPException(
             status_code=404,
-            detail="Intersection not found"
+            detail="Intersection not found",
         )
 
-    record = TrafficObservation(
-        intersection_id=observation.intersection_id,
-        vehicle_count=observation.vehicle_count,
-        average_speed=observation.average_speed,
-        congestion_level=observation.congestion_level
+    row = TrafficObservation(
+        intersection_id=payload.intersection_id,
+        vehicle_count=payload.vehicle_count,
+        average_speed=payload.average_speed,
+        congestion_level=payload.congestion_level,
     )
 
-    db.add(record)
+    db.add(row)
     db.commit()
-    db.refresh(record)
+    db.refresh(row)
 
     return {
-        "message": "Traffic observation stored permanently",
-        "data": observation_to_dict(record)
+        "message": (
+            "Traffic observation stored permanently"
+        ),
+        "data": observation_to_dict(row),
     }
 
 
 @app.get("/congestion")
-def congestion(db: Session = Depends(get_db)):
-
-    total = db.query(func.count(TrafficObservation.id)).scalar()
+def congestion(
+    db: Session = Depends(get_db),
+):
+    total = (
+        db.query(
+            func.count(TrafficObservation.id)
+        )
+        .scalar()
+        or 0
+    )
 
     latest = (
         db.query(TrafficObservation)
-        .order_by(TrafficObservation.timestamp.desc())
+        .order_by(
+            TrafficObservation.timestamp.desc()
+        )
         .first()
     )
 
-    if latest is None:
-        return {
-            "status": "no_data",
-            "observations": 0
-        }
+    return {
+        "status": (
+            "available"
+            if latest
+            else "no_data"
+        ),
+        "observations": total,
+        "latest": (
+            observation_to_dict(latest)
+            if latest
+            else None
+        ),
+    }
+
+
+@app.get("/incidents")
+def get_incidents(
+    db: Session = Depends(get_db),
+):
+    rows = (
+        db.query(Incident)
+        .order_by(
+            Incident.reported_at.desc()
+        )
+        .limit(100)
+        .all()
+    )
+
+    return [
+        incident_to_dict(row)
+        for row in rows
+    ]
+
+
+@app.post(
+    "/incidents",
+    status_code=201,
+)
+def create_incident(
+    payload: IncidentCreate,
+    db: Session = Depends(get_db),
+    api_key: str = Depends(verify_api_key),
+):
+    intersection = (
+        db.query(Intersection)
+        .filter(
+            Intersection.id
+            == payload.intersection_id
+        )
+        .first()
+    )
+
+    if intersection is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Intersection not found",
+        )
+
+    row = Incident(
+        intersection_id=payload.intersection_id,
+        incident_type=payload.type,
+        severity=payload.severity,
+        description=payload.description,
+        status="reported",
+    )
+
+    db.add(row)
+    db.commit()
+    db.refresh(row)
 
     return {
-        "status": "available",
-        "observations": total,
-        "latest": observation_to_dict(latest)
+        "message": "Incident reported",
+        "data": incident_to_dict(row),
+    }
+
+
+@app.patch("/incidents/{incident_id}/status")
+def update_incident_status(
+    incident_id: int,
+    payload: IncidentStatusUpdate,
+    db: Session = Depends(get_db),
+    api_key: str = Depends(verify_api_key),
+):
+    row = (
+        db.query(Incident)
+        .filter(
+            Incident.id == incident_id
+        )
+        .first()
+    )
+
+    if row is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Incident not found",
+        )
+
+    row.status = payload.status
+
+    if payload.status == "resolved":
+        row.resolved_at = datetime.now(
+            timezone.utc
+        )
+
+    elif row.resolved_at is not None:
+        row.resolved_at = None
+
+    db.commit()
+    db.refresh(row)
+
+    return {
+        "message": "Incident status updated",
+        "data": incident_to_dict(row),
+    }
+
+
+@app.get("/traffic-lights")
+def get_traffic_lights(
+    db: Session = Depends(get_db),
+):
+    rows = (
+        db.query(TrafficLight)
+        .order_by(TrafficLight.id)
+        .all()
+    )
+
+    return [
+        traffic_light_to_dict(row)
+        for row in rows
+    ]
+
+
+@app.post(
+    "/traffic-lights",
+    status_code=201,
+)
+def create_traffic_light(
+    payload: TrafficLightCreate,
+    db: Session = Depends(get_db),
+    api_key: str = Depends(verify_api_key),
+):
+    intersection = (
+        db.query(Intersection)
+        .filter(
+            Intersection.id
+            == payload.intersection_id
+        )
+        .first()
+    )
+
+    if intersection is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Intersection not found",
+        )
+
+    existing = (
+        db.query(TrafficLight)
+        .filter(
+            TrafficLight.intersection_id
+            == payload.intersection_id
+        )
+        .first()
+    )
+
+    if existing:
+        raise HTTPException(
+            status_code=409,
+            detail=(
+                "A traffic light already exists "
+                "for this intersection"
+            ),
+        )
+
+    row = TrafficLight(
+        intersection_id=payload.intersection_id,
+        current_phase=payload.current_phase,
+        green_duration=payload.green_duration,
+        yellow_duration=payload.yellow_duration,
+        red_duration=payload.red_duration,
+        status=payload.status,
+    )
+
+    db.add(row)
+    db.commit()
+    db.refresh(row)
+
+    return {
+        "message": "Traffic light created",
+        "data": traffic_light_to_dict(row),
+    }
+
+
+@app.patch("/traffic-lights/{traffic_light_id}")
+def update_traffic_light(
+    traffic_light_id: int,
+    payload: TrafficLightUpdate,
+    db: Session = Depends(get_db),
+    api_key: str = Depends(verify_api_key),
+):
+    row = (
+        db.query(TrafficLight)
+        .filter(
+            TrafficLight.id
+            == traffic_light_id
+        )
+        .first()
+    )
+
+    if row is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Traffic light not found",
+        )
+
+    changes = payload.model_dump(
+        exclude_unset=True,
+        exclude_none=True,
+    )
+
+    if not changes:
+        raise HTTPException(
+            status_code=400,
+            detail="No changes supplied",
+        )
+
+    for key, value in changes.items():
+        setattr(row, key, value)
+
+    db.commit()
+    db.refresh(row)
+
+    return {
+        "message": "Traffic light updated",
+        "data": traffic_light_to_dict(row),
+    }
+
+
+@app.get("/analytics/summary")
+def analytics_summary(
+    db: Session = Depends(get_db),
+):
+    intersections = (
+        db.query(
+            func.count(Intersection.id)
+        )
+        .scalar()
+        or 0
+    )
+
+    observations = (
+        db.query(
+            func.count(TrafficObservation.id)
+        )
+        .scalar()
+        or 0
+    )
+
+    incidents = (
+        db.query(
+            func.count(Incident.id)
+        )
+        .scalar()
+        or 0
+    )
+
+    active_incidents = (
+        db.query(
+            func.count(Incident.id)
+        )
+        .filter(
+            Incident.status.in_(
+                ["reported", "confirmed"]
+            )
+        )
+        .scalar()
+        or 0
+    )
+
+    traffic_lights = (
+        db.query(
+            func.count(TrafficLight.id)
+        )
+        .scalar()
+        or 0
+    )
+
+    average_speed = (
+        db.query(
+            func.avg(
+                TrafficObservation.average_speed
+            )
+        )
+        .scalar()
+    )
+
+    return {
+        "intersections": intersections,
+        "traffic_observations": observations,
+        "incidents": incidents,
+        "active_incidents": active_incidents,
+        "traffic_lights": traffic_lights,
+        "average_speed": (
+            round(float(average_speed), 2)
+            if average_speed is not None
+            else None
+        ),
     }
