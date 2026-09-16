@@ -1,9 +1,11 @@
 from sqlalchemy import (
+    BigInteger,
     Column,
     DateTime,
     Float,
     ForeignKey,
     Integer,
+    JSON,
     String,
     Text,
     func,
@@ -139,4 +141,69 @@ class Incident(Base):
     resolved_at = Column(
         DateTime(timezone=True),
         nullable=True,
+    )
+
+
+class OSMFeature(Base):
+    __tablename__ = "osm_features"
+
+    id = Column(
+        Integer,
+        primary_key=True,
+        index=True,
+    )
+
+    osm_key = Column(
+        String(100),
+        unique=True,
+        nullable=False,
+        index=True,
+    )
+
+    osm_type = Column(
+        String(20),
+        nullable=False,
+    )
+
+    osm_id = Column(
+        BigInteger,
+        nullable=False,
+    )
+
+    feature_type = Column(
+        String(50),
+        nullable=False,
+        index=True,
+    )
+
+    name = Column(
+        String(200),
+        nullable=False,
+    )
+
+    latitude = Column(
+        Float,
+        nullable=False,
+    )
+
+    longitude = Column(
+        Float,
+        nullable=False,
+    )
+
+    tags = Column(
+        JSON,
+        nullable=True,
+    )
+
+    source = Column(
+        String(50),
+        default="OpenStreetMap",
+        nullable=False,
+    )
+
+    imported_at = Column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        nullable=False,
     )

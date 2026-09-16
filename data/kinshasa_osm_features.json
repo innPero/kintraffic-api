@@ -1,0 +1,1973 @@
+[
+  {
+    "osm_type": "node",
+    "osm_id": 26870335,
+    "feature_type": "traffic_signal",
+    "name": "Feu OSM 26870335",
+    "latitude": -4.327216,
+    "longitude": 15.2962763,
+    "tags": {
+      "highway": "traffic_signals",
+      "traffic_signals": "robot"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 435669522,
+    "feature_type": "traffic_signal",
+    "name": "Feu OSM 435669522",
+    "latitude": -4.3060814,
+    "longitude": 15.3073143,
+    "tags": {
+      "highway": "traffic_signals"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 617064206,
+    "feature_type": "traffic_signal",
+    "name": "Feu OSM 617064206",
+    "latitude": -4.3916467,
+    "longitude": 15.3396415,
+    "tags": {
+      "highway": "traffic_signals"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 2176341875,
+    "feature_type": "traffic_signal",
+    "name": "Feu OSM 2176341875",
+    "latitude": -4.3369736,
+    "longitude": 15.2961177,
+    "tags": {
+      "highway": "traffic_signals",
+      "traffic_signals": "robot"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 5620388716,
+    "feature_type": "traffic_signal",
+    "name": "Feu OSM 5620388716",
+    "latitude": -4.3311077,
+    "longitude": 15.2964851,
+    "tags": {
+      "highway": "traffic_signals",
+      "traffic_signals": "signal",
+      "traffic_signals:direction": "both"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 6337757901,
+    "feature_type": "traffic_signal",
+    "name": "Feu OSM 6337757901",
+    "latitude": -4.3940667,
+    "longitude": 15.3728836,
+    "tags": {
+      "highway": "traffic_signals",
+      "traffic_signals": "signal"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 6461912271,
+    "feature_type": "traffic_signal",
+    "name": "Feu OSM 6461912271",
+    "latitude": -4.3166515,
+    "longitude": 15.292259,
+    "tags": {
+      "highway": "traffic_signals",
+      "traffic_signals": "signal",
+      "traffic_signals:direction": "forward"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 6461912272,
+    "feature_type": "traffic_signal",
+    "name": "Feu OSM 6461912272",
+    "latitude": -4.3166604,
+    "longitude": 15.2922584,
+    "tags": {
+      "highway": "traffic_signals",
+      "traffic_signals": "signal",
+      "traffic_signals:direction": "forward"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 6461912273,
+    "feature_type": "traffic_signal",
+    "name": "Feu OSM 6461912273",
+    "latitude": -4.3166803,
+    "longitude": 15.2921694,
+    "tags": {
+      "highway": "traffic_signals",
+      "traffic_signals": "signal",
+      "traffic_signals:direction": "forward"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 6461912274,
+    "feature_type": "traffic_signal",
+    "name": "Feu OSM 6461912274",
+    "latitude": -4.3166883,
+    "longitude": 15.292165,
+    "tags": {
+      "highway": "traffic_signals",
+      "traffic_signals": "signal",
+      "traffic_signals:direction": "forward"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 8268333989,
+    "feature_type": "traffic_signal",
+    "name": "Feu OSM 8268333989",
+    "latitude": -4.3371882,
+    "longitude": 15.2959903,
+    "tags": {
+      "highway": "traffic_signals",
+      "traffic_signals": "robot"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 8268333990,
+    "feature_type": "traffic_signal",
+    "name": "Feu OSM 8268333990",
+    "latitude": -4.3368847,
+    "longitude": 15.2959447,
+    "tags": {
+      "highway": "traffic_signals",
+      "traffic_signals": "robot"
+    }
+  },
+  {
+    "osm_type": "node",
+    "osm_id": 8284142025,
+    "feature_type": "traffic_signal",
+    "name": "Feu OSM 8284142025",
+    "latitude": -4.3061845,
+    "longitude": 15.2994327,
+    "tags": {
+      "highway": "traffic_signals",
+      "traffic_signals": "robot"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 4394364,
+    "feature_type": "roundabout",
+    "name": "Rond-Point Ngaba",
+    "latitude": -4.3897044,
+    "longitude": 15.3147311,
+    "tags": {
+      "highway": "trunk",
+      "junction": "roundabout",
+      "name": "Rond-Point Ngaba",
+      "oneway": "yes",
+      "ref": "RN1",
+      "source": "Cellule Infrastructure",
+      "source:date": "2018/09/18"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 4403270,
+    "feature_type": "roundabout",
+    "name": "Rond-point Kimpwanza",
+    "latitude": -4.337837,
+    "longitude": 15.3051754,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "name": "Rond-point Kimpwanza",
+      "oneway": "yes",
+      "source": "https://www.factuel.cd/2020/08/15/kinshasakasavubu-enfin-le-rond-point-kimpwanza-asphalte"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 4403271,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 4403271",
+    "latitude": -4.3396176,
+    "longitude": 15.3093989,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 4403272,
+    "feature_type": "roundabout",
+    "name": "Rond-point Moulaert",
+    "latitude": -4.3479439,
+    "longitude": 15.2917228,
+    "tags": {
+      "alt_name": "Place du 17 mai",
+      "highway": "trunk",
+      "junction": "roundabout",
+      "name": "Rond-point Moulaert",
+      "note": "classée voie principale",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 4415122,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 4415122",
+    "latitude": -4.3508694,
+    "longitude": 15.32482,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 4415357,
+    "feature_type": "roundabout",
+    "name": "Place du 17 Mai",
+    "latitude": -4.3480736,
+    "longitude": 15.3066977,
+    "tags": {
+      "highway": "tertiary",
+      "junction": "roundabout",
+      "name": "Place du 17 Mai",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 4415413,
+    "feature_type": "roundabout",
+    "name": "Place du Soldat Congolais",
+    "latitude": -4.3013335,
+    "longitude": 15.3087496,
+    "tags": {
+      "alt_name": "place des Travailleurs",
+      "highway": "secondary",
+      "junction": "roundabout",
+      "name": "Place du Soldat Congolais",
+      "old_name": "Rond-point FORESCOM",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 4419161,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 4419161",
+    "latitude": -4.3151962,
+    "longitude": 15.2684662,
+    "tags": {
+      "foot": "yes",
+      "highway": "unclassified",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 4445768,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 4445768",
+    "latitude": -4.318594,
+    "longitude": 15.3322904,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "lane_markings": "yes",
+      "lanes": "2",
+      "oneway": "yes",
+      "surface": "asphalt"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 4446486,
+    "feature_type": "roundabout",
+    "name": "Rond-Point Ezo",
+    "latitude": -4.3672452,
+    "longitude": 15.3204944,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "name": "Rond-Point Ezo",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 4450217,
+    "feature_type": "roundabout",
+    "name": "Super Lemba",
+    "latitude": -4.3796707,
+    "longitude": 15.3353596,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "name": "Super Lemba",
+      "oneway": "yes",
+      "source:imagery": "Bing"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 4647987,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 4647987",
+    "latitude": -4.3876114,
+    "longitude": 15.3306772,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "oneway": "yes",
+      "source:imagery": "Esri World Imagery (Clarity) Beta"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 4692245,
+    "feature_type": "roundabout",
+    "name": "Place de la République",
+    "latitude": -4.2801752,
+    "longitude": 15.2597441,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "name": "Place de la République",
+      "oneway": "yes",
+      "surface": "paved"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 4692443,
+    "feature_type": "roundabout",
+    "name": "Rond-Point de l'État Major",
+    "latitude": -4.2806687,
+    "longitude": 15.2713056,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "name": "Rond-Point de l'État Major",
+      "oneway": "yes",
+      "surface": "paved"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 4693460,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 4693460",
+    "latitude": -4.3978528,
+    "longitude": 15.3717362,
+    "tags": {
+      "highway": "unclassified",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 13986796,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 13986796",
+    "latitude": -4.4027064,
+    "longitude": 15.3273165,
+    "tags": {
+      "alt_name": "Bloc B",
+      "highway": "unclassified",
+      "junction": "roundabout",
+      "old_name": "salongo sud",
+      "smoothness": "good",
+      "surface": "cobblestone"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 23342565,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 23342565",
+    "latitude": -4.2657425,
+    "longitude": 15.2729407,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "oneway": "yes",
+      "surface": "paved"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 31876223,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 31876223",
+    "latitude": -4.2968836,
+    "longitude": 15.2311007,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "oneway": "yes",
+      "source": "Yahoo"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 37358110,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 37358110",
+    "latitude": -4.2743513,
+    "longitude": 15.2847947,
+    "tags": {
+      "highway": "unclassified",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 37360502,
+    "feature_type": "roundabout",
+    "name": "Rond-Point de l'Afrique Centrale",
+    "latitude": -4.3055702,
+    "longitude": 15.3134676,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "name": "Rond-Point de l'Afrique Centrale",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 37365989,
+    "feature_type": "roundabout",
+    "name": "Rond-point de la Patte d'Oie",
+    "latitude": -4.2694633,
+    "longitude": 15.2547667,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "name": "Rond-point de la Patte d'Oie",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 37366031,
+    "feature_type": "roundabout",
+    "name": "Avenue Amilcar Cabral",
+    "latitude": -4.2782818,
+    "longitude": 15.2780598,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "name": "Avenue Amilcar Cabral",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 48525948,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 48525948",
+    "latitude": -4.4198848,
+    "longitude": 15.3081008,
+    "tags": {
+      "highway": "service",
+      "junction": "roundabout",
+      "oneway": "yes",
+      "surface": "asphalt"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 48526145,
+    "feature_type": "roundabout",
+    "name": "Avenue de l'Est",
+    "latitude": -4.4254188,
+    "longitude": 15.3109746,
+    "tags": {
+      "highway": "residential",
+      "junction": "roundabout",
+      "lane_markings": "no",
+      "lit": "no",
+      "name": "Avenue de l'Est",
+      "oneway": "yes",
+      "sidewalk": "separate",
+      "surface": "asphalt"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 48526924,
+    "feature_type": "roundabout",
+    "name": "Rond point Sentiment",
+    "latitude": -4.4188871,
+    "longitude": 15.311777,
+    "tags": {
+      "highway": "tertiary",
+      "junction": "roundabout",
+      "lanes": "2",
+      "name": "Rond point Sentiment",
+      "oneway": "yes",
+      "smoothness": "excellent",
+      "surface": "asphalt"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 48580071,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 48580071",
+    "latitude": -4.3290438,
+    "longitude": 15.2457069,
+    "tags": {
+      "highway": "service",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 48840292,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 48840292",
+    "latitude": -4.3682669,
+    "longitude": 15.2560469,
+    "tags": {
+      "highway": "residential",
+      "junction": "roundabout",
+      "oneway": "yes",
+      "surface": "asphalt"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 105256011,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 105256011",
+    "latitude": -4.3287906,
+    "longitude": 15.3502094,
+    "tags": {
+      "access": "private",
+      "highway": "tertiary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 106449619,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 106449619",
+    "latitude": -4.3613747,
+    "longitude": 15.2546944,
+    "tags": {
+      "highway": "tertiary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 106536057,
+    "feature_type": "roundabout",
+    "name": "Rond-point Safricas",
+    "latitude": -4.323177,
+    "longitude": 15.2782354,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "lanes": "1",
+      "name": "Rond-point Safricas",
+      "oneway": "yes",
+      "surface": "asphalt"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 153730600,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 153730600",
+    "latitude": -4.2541073,
+    "longitude": 15.2319473,
+    "tags": {
+      "highway": "tertiary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 153730601,
+    "feature_type": "roundabout",
+    "name": "Ront-Point Ngambio",
+    "latitude": -4.2491029,
+    "longitude": 15.233803,
+    "tags": {
+      "access": "yes",
+      "bicycle": "yes",
+      "foot": "yes",
+      "highway": "tertiary",
+      "junction": "roundabout",
+      "motor_vehicle": "yes",
+      "name": "Ront-Point Ngambio",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 153731490,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 153731490",
+    "latitude": -4.2733745,
+    "longitude": 15.2831354,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 158073473,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 158073473",
+    "latitude": -4.4412579,
+    "longitude": 15.3780169,
+    "tags": {
+      "highway": "tertiary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 207642471,
+    "feature_type": "roundabout",
+    "name": "Zinnias",
+    "latitude": -4.3567175,
+    "longitude": 15.3352052,
+    "tags": {
+      "highway": "tertiary",
+      "junction": "roundabout",
+      "name": "Zinnias",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 238317082,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 238317082",
+    "latitude": -4.1619484,
+    "longitude": 15.310039,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 261370380,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 261370380",
+    "latitude": -4.2851237,
+    "longitude": 15.2670844,
+    "tags": {
+      "highway": "service",
+      "junction": "roundabout"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 281206292,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 281206292",
+    "latitude": -4.259844,
+    "longitude": 15.2541891,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 281206294,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 281206294",
+    "latitude": -4.261629,
+    "longitude": 15.2521361,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 306262391,
+    "feature_type": "roundabout",
+    "name": "Rond-Point de Mazala",
+    "latitude": -4.2276736,
+    "longitude": 15.2623293,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "name": "Rond-Point de Mazala",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 422304635,
+    "feature_type": "roundabout",
+    "name": "Avenue de Kintélé",
+    "latitude": -4.1573138,
+    "longitude": 15.33009,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "name": "Avenue de Kintélé",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 422304636,
+    "feature_type": "roundabout",
+    "name": "RN 2",
+    "latitude": -4.2189642,
+    "longitude": 15.2731063,
+    "tags": {
+      "highway": "trunk",
+      "junction": "roundabout",
+      "oneway": "yes",
+      "ref": "RN 2"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 422304638,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 422304638",
+    "latitude": -4.1595046,
+    "longitude": 15.3220468,
+    "tags": {
+      "highway": "trunk",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 422309763,
+    "feature_type": "roundabout",
+    "name": "Rond-Point de Moungali",
+    "latitude": -4.2541299,
+    "longitude": 15.2736447,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "name": "Rond-Point de Moungali",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 422309766,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 422309766",
+    "latitude": -4.2335923,
+    "longitude": 15.2961485,
+    "tags": {
+      "highway": "trunk",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 422314294,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 422314294",
+    "latitude": -4.2469531,
+    "longitude": 15.2688197,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 422314296,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 422314296",
+    "latitude": -4.2371022,
+    "longitude": 15.268366,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "lane_markings": "no",
+      "oneway": "yes",
+      "surface": "asphalt"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 422314309,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 422314309",
+    "latitude": -4.2487024,
+    "longitude": 15.2665158,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 422456222,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 422456222",
+    "latitude": -4.2820087,
+    "longitude": 15.2722468,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 422458092,
+    "feature_type": "roundabout",
+    "name": "Route de la Corniche",
+    "latitude": -4.2904837,
+    "longitude": 15.2666227,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "name": "Route de la Corniche",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 422471831,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 422471831",
+    "latitude": -4.2707282,
+    "longitude": 15.2878611,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 422471832,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 422471832",
+    "latitude": -4.2742854,
+    "longitude": 15.2814375,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 422488329,
+    "feature_type": "roundabout",
+    "name": "Rond-Point de Poto-Poto",
+    "latitude": -4.2670074,
+    "longitude": 15.2846504,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "name": "Rond-Point de Poto-Poto",
+      "oneway": "yes",
+      "ref": "Rond Point Poto Poto"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 422488331,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 422488331",
+    "latitude": -4.2757826,
+    "longitude": 15.2733294,
+    "tags": {
+      "highway": "tertiary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 422488332,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 422488332",
+    "latitude": -4.2709965,
+    "longitude": 15.289419,
+    "tags": {
+      "highway": "residential",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 422488340,
+    "feature_type": "roundabout",
+    "name": "Rond-point de la Gare PV",
+    "latitude": -4.261339,
+    "longitude": 15.2932579,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "name": "Rond-point de la Gare PV",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 422526995,
+    "feature_type": "roundabout",
+    "name": "Rond-Point du Camp",
+    "latitude": -4.2459259,
+    "longitude": 15.2475088,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "name": "Rond-Point du Camp",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 422526996,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 422526996",
+    "latitude": -4.2486415,
+    "longitude": 15.2996353,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 423903379,
+    "feature_type": "roundabout",
+    "name": "Avenue de la Base",
+    "latitude": -4.2639925,
+    "longitude": 15.239786,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "name": "Avenue de la Base",
+      "oneway": "yes",
+      "source": "Bing",
+      "surface": "asphalt"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 424947057,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 424947057",
+    "latitude": -4.3295585,
+    "longitude": 15.2854301,
+    "tags": {
+      "highway": "service",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 424954210,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 424954210",
+    "latitude": -4.3462704,
+    "longitude": 15.2628686,
+    "tags": {
+      "highway": "residential",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 425203654,
+    "feature_type": "roundabout",
+    "name": "Avenue Fulbert Youlou",
+    "latitude": -4.295068,
+    "longitude": 15.2417417,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "name": "Avenue Fulbert Youlou",
+      "oneway": "yes",
+      "surface": "paved"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 427829749,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 427829749",
+    "latitude": -4.3227082,
+    "longitude": 15.2666603,
+    "tags": {
+      "access": "destination",
+      "highway": "residential",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 435662712,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 435662712",
+    "latitude": -4.3412238,
+    "longitude": 15.2549561,
+    "tags": {
+      "highway": "service",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 458782432,
+    "feature_type": "roundabout",
+    "name": "Avenue du District",
+    "latitude": -4.2639489,
+    "longitude": 15.2344933,
+    "tags": {
+      "highway": "unclassified",
+      "junction": "roundabout",
+      "name": "Avenue du District",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 459882503,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 459882503",
+    "latitude": -4.3115708,
+    "longitude": 15.2730876,
+    "tags": {
+      "highway": "tertiary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 459909904,
+    "feature_type": "roundabout",
+    "name": "Avenue Terminus",
+    "latitude": -4.393706,
+    "longitude": 15.3467042,
+    "tags": {
+      "highway": "tertiary",
+      "junction": "roundabout",
+      "name": "Avenue Terminus",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 460084106,
+    "feature_type": "roundabout",
+    "name": "Rond point Désespoir",
+    "latitude": -4.4212595,
+    "longitude": 15.310274,
+    "tags": {
+      "alt_name": "Rond point Vatican",
+      "highway": "service",
+      "junction": "roundabout",
+      "name": "Rond point Désespoir",
+      "oneway": "yes",
+      "surface": "asphalt"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 460084108,
+    "feature_type": "roundabout",
+    "name": "Avenue de l'Université",
+    "latitude": -4.416244,
+    "longitude": 15.3136636,
+    "tags": {
+      "highway": "tertiary",
+      "junction": "roundabout",
+      "lanes": "2",
+      "name": "Avenue de l'Université",
+      "oneway": "yes",
+      "surface": "asphalt"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 578914801,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 578914801",
+    "latitude": -4.3408812,
+    "longitude": 15.3137025,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 584626163,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 584626163",
+    "latitude": -4.3281551,
+    "longitude": 15.2425796,
+    "tags": {
+      "highway": "service",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 589256191,
+    "feature_type": "roundabout",
+    "name": "Deuxième Sortie Nord",
+    "latitude": -4.220461,
+    "longitude": 15.2939613,
+    "tags": {
+      "highway": "tertiary",
+      "junction": "roundabout",
+      "name": "Deuxième Sortie Nord",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 589397711,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 589397711",
+    "latitude": -4.2278927,
+    "longitude": 15.2962982,
+    "tags": {
+      "highway": "residential",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 590438203,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 590438203",
+    "latitude": -4.4403181,
+    "longitude": 15.2595962,
+    "tags": {
+      "highway": "unclassified",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 590551427,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 590551427",
+    "latitude": -4.4127073,
+    "longitude": 15.3038276,
+    "tags": {
+      "highway": "service",
+      "junction": "roundabout",
+      "oneway": "yes",
+      "surface": "asphalt"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 595160910,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 595160910",
+    "latitude": -4.3074419,
+    "longitude": 15.240021,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 595160912,
+    "feature_type": "roundabout",
+    "name": "Route de la Corniche",
+    "latitude": -4.3016601,
+    "longitude": 15.2582161,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "lanes": "2",
+      "name": "Route de la Corniche",
+      "oneway": "yes",
+      "smoothness": "excellent",
+      "surface": "asphalt"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 595160914,
+    "feature_type": "roundabout",
+    "name": "Route de la Corniche",
+    "latitude": -4.2962534,
+    "longitude": 15.2616669,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "name": "Route de la Corniche",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 595160919,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 595160919",
+    "latitude": -4.3048183,
+    "longitude": 15.2503427,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 595537446,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 595537446",
+    "latitude": -4.274394,
+    "longitude": 15.2665281,
+    "tags": {
+      "highway": "residential",
+      "junction": "roundabout",
+      "oneway": "yes",
+      "surface": "paved"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 616996340,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 616996340",
+    "latitude": -4.1998086,
+    "longitude": 15.2191551,
+    "tags": {
+      "highway": "residential",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 616996358,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 616996358",
+    "latitude": -4.2012911,
+    "longitude": 15.2118342,
+    "tags": {
+      "highway": "residential",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 616996361,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 616996361",
+    "latitude": -4.2020565,
+    "longitude": 15.2123603,
+    "tags": {
+      "highway": "residential",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 617419630,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 617419630",
+    "latitude": -4.1915672,
+    "longitude": 15.2525998,
+    "tags": {
+      "highway": "service",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 617451572,
+    "feature_type": "roundabout",
+    "name": "Avenue de la Tsiémé",
+    "latitude": -4.2441384,
+    "longitude": 15.2859945,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "name": "Avenue de la Tsiémé",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 618527741,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 618527741",
+    "latitude": -4.24499,
+    "longitude": 15.2489145,
+    "tags": {
+      "highway": "residential",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 618558292,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 618558292",
+    "latitude": -4.2140995,
+    "longitude": 15.2934186,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 618786287,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 618786287",
+    "latitude": -4.1625444,
+    "longitude": 15.3259685,
+    "tags": {
+      "highway": "service",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 618786289,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 618786289",
+    "latitude": -4.161156,
+    "longitude": 15.3254208,
+    "tags": {
+      "highway": "service",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 652552637,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 652552637",
+    "latitude": -4.3075676,
+    "longitude": 15.2350079,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 722757006,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 722757006",
+    "latitude": -4.3977869,
+    "longitude": 15.3717463,
+    "tags": {
+      "highway": "unclassified",
+      "junction": "roundabout",
+      "lanes": "2",
+      "oneway": "yes",
+      "surface": "asphalt"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 723398373,
+    "feature_type": "roundabout",
+    "name": "Avenue Terminus",
+    "latitude": -4.3937295,
+    "longitude": 15.3466768,
+    "tags": {
+      "highway": "tertiary",
+      "junction": "roundabout",
+      "name": "Avenue Terminus",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 723499238,
+    "feature_type": "roundabout",
+    "name": "Avenue Terminus",
+    "latitude": -4.3937577,
+    "longitude": 15.3467289,
+    "tags": {
+      "highway": "tertiary",
+      "junction": "roundabout",
+      "name": "Avenue Terminus",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 723811132,
+    "feature_type": "roundabout",
+    "name": "Rond-Point de Ngaba",
+    "latitude": -4.3901238,
+    "longitude": 15.3150065,
+    "tags": {
+      "highway": "trunk",
+      "junction": "roundabout",
+      "lanes": "1",
+      "name": "Rond-Point de Ngaba",
+      "oneway": "yes",
+      "ref": "RN1",
+      "source": "Cellule Infrastructure",
+      "source:date": "2018/09/18"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 723811135,
+    "feature_type": "roundabout",
+    "name": "Rond-Point Ngaba",
+    "latitude": -4.3899368,
+    "longitude": 15.315105,
+    "tags": {
+      "highway": "trunk",
+      "junction": "roundabout",
+      "lanes": "1",
+      "name": "Rond-Point Ngaba",
+      "oneway": "yes",
+      "ref": "RN1",
+      "source": "Cellule Infrastructure",
+      "source:date": "2018/09/18"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 770844447,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 770844447",
+    "latitude": -4.3407857,
+    "longitude": 15.3136427,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 774620667,
+    "feature_type": "roundabout",
+    "name": "Rond-point Moulaert",
+    "latitude": -4.3480853,
+    "longitude": 15.2917698,
+    "tags": {
+      "alt_name": "Place du 17 mai",
+      "highway": "trunk",
+      "junction": "roundabout",
+      "name": "Rond-point Moulaert",
+      "note": "classée voie principale",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 822077102,
+    "feature_type": "roundabout",
+    "name": "Rond-point Moulaert",
+    "latitude": -4.3478747,
+    "longitude": 15.2918568,
+    "tags": {
+      "alt_name": "Place du 17 mai",
+      "highway": "trunk",
+      "junction": "roundabout",
+      "name": "Rond-point Moulaert",
+      "note": "classée voie principale",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 822077105,
+    "feature_type": "roundabout",
+    "name": "Rond-point Moulaert",
+    "latitude": -4.3480017,
+    "longitude": 15.2919348,
+    "tags": {
+      "alt_name": "Place du 17 mai",
+      "highway": "trunk",
+      "junction": "roundabout",
+      "name": "Rond-point Moulaert",
+      "note": "classée voie principale",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 822077106,
+    "feature_type": "roundabout",
+    "name": "Rond-point Moulaert",
+    "latitude": -4.3481087,
+    "longitude": 15.2918839,
+    "tags": {
+      "alt_name": "Place du 17 mai",
+      "highway": "trunk",
+      "junction": "roundabout",
+      "name": "Rond-point Moulaert",
+      "note": "classée voie principale",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 918048025,
+    "feature_type": "roundabout",
+    "name": "Rond-point Safricas",
+    "latitude": -4.3231317,
+    "longitude": 15.2780893,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "lanes": "1",
+      "name": "Rond-point Safricas",
+      "oneway": "yes",
+      "surface": "asphalt"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 918048026,
+    "feature_type": "roundabout",
+    "name": "Rond-point Safricas",
+    "latitude": -4.3232795,
+    "longitude": 15.2781532,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "lanes": "1",
+      "name": "Rond-point Safricas",
+      "oneway": "yes",
+      "surface": "asphalt"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 918048027,
+    "feature_type": "roundabout",
+    "name": "Rond-point Safricas",
+    "latitude": -4.3232181,
+    "longitude": 15.2780654,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "lanes": "1",
+      "name": "Rond-point Safricas",
+      "oneway": "yes",
+      "surface": "asphalt"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 918048028,
+    "feature_type": "roundabout",
+    "name": "Rond-point Safricas",
+    "latitude": -4.3230689,
+    "longitude": 15.2781432,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "lanes": "1",
+      "name": "Rond-point Safricas",
+      "oneway": "yes",
+      "surface": "asphalt"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 918467102,
+    "feature_type": "roundabout",
+    "name": "Rond-point Kimpwanza",
+    "latitude": -4.338225,
+    "longitude": 15.3050761,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "name": "Rond-point Kimpwanza",
+      "oneway": "yes",
+      "source": "https://www.factuel.cd/2020/08/15/kinshasakasavubu-enfin-le-rond-point-kimpwanza-asphalte"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 918467103,
+    "feature_type": "roundabout",
+    "name": "Rond-point Kimpwanza",
+    "latitude": -4.338097,
+    "longitude": 15.305337,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "name": "Rond-point Kimpwanza",
+      "oneway": "yes",
+      "source": "https://www.factuel.cd/2020/08/15/kinshasakasavubu-enfin-le-rond-point-kimpwanza-asphalte"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 918467104,
+    "feature_type": "roundabout",
+    "name": "Rond-point Kimpwanza",
+    "latitude": -4.3379851,
+    "longitude": 15.3049135,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "name": "Rond-point Kimpwanza",
+      "oneway": "yes",
+      "source": "https://www.factuel.cd/2020/08/15/kinshasakasavubu-enfin-le-rond-point-kimpwanza-asphalte"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 918467105,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 918467105",
+    "latitude": -4.3392037,
+    "longitude": 15.3094909,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 918467106,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 918467106",
+    "latitude": -4.3394811,
+    "longitude": 15.3097183,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 918467107,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 918467107",
+    "latitude": -4.3393336,
+    "longitude": 15.3091739,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 918467108,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 918467108",
+    "latitude": -4.3407271,
+    "longitude": 15.3136749,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 918467109,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 918467109",
+    "latitude": -4.3407487,
+    "longitude": 15.3137457,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 918467110,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 918467110",
+    "latitude": -4.3408504,
+    "longitude": 15.3136357,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 918467111,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 918467111",
+    "latitude": -4.3408337,
+    "longitude": 15.3137843,
+    "tags": {
+      "highway": "primary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 918467113,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 918467113",
+    "latitude": -4.3508681,
+    "longitude": 15.3250907,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 918467114,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 918467114",
+    "latitude": -4.351007,
+    "longitude": 15.3249681,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 918467115,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 918467115",
+    "latitude": -4.3507249,
+    "longitude": 15.3249543,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 918467116,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 918467116",
+    "latitude": -4.3509975,
+    "longitude": 15.3248615,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 918467323,
+    "feature_type": "roundabout",
+    "name": "Rond-point Kimpwanza",
+    "latitude": -4.3378237,
+    "longitude": 15.3049867,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "name": "Rond-point Kimpwanza",
+      "oneway": "yes",
+      "source": "https://www.factuel.cd/2020/08/15/kinshasakasavubu-enfin-le-rond-point-kimpwanza-asphalte"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 918467324,
+    "feature_type": "roundabout",
+    "name": "Rond-point Kimpwanza",
+    "latitude": -4.337907,
+    "longitude": 15.3053541,
+    "tags": {
+      "highway": "secondary",
+      "junction": "roundabout",
+      "name": "Rond-point Kimpwanza",
+      "oneway": "yes",
+      "source": "https://www.factuel.cd/2020/08/15/kinshasakasavubu-enfin-le-rond-point-kimpwanza-asphalte"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 930340708,
+    "feature_type": "roundabout",
+    "name": "RN1",
+    "latitude": -4.3748987,
+    "longitude": 15.3437884,
+    "tags": {
+      "highway": "trunk",
+      "junction": "roundabout",
+      "oneway": "yes",
+      "ref": "RN1",
+      "source": "Cellule Infrastructure",
+      "source:imagery": "Bing"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 948122284,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 948122284",
+    "latitude": -4.441452,
+    "longitude": 15.3780179,
+    "tags": {
+      "highway": "tertiary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 949423836,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 949423836",
+    "latitude": -4.4413331,
+    "longitude": 15.3779094,
+    "tags": {
+      "highway": "tertiary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 949423840,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 949423840",
+    "latitude": -4.4413257,
+    "longitude": 15.3781254,
+    "tags": {
+      "highway": "tertiary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 955778449,
+    "feature_type": "roundabout",
+    "name": "Rond-Point Ngaba",
+    "latitude": -4.3900497,
+    "longitude": 15.3147025,
+    "tags": {
+      "highway": "trunk",
+      "junction": "roundabout",
+      "name": "Rond-Point Ngaba",
+      "oneway": "yes",
+      "ref": "RN1",
+      "source": "Cellule Infrastructure",
+      "source:date": "2018/09/18"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 958035014,
+    "feature_type": "roundabout",
+    "name": "Rond-Point Ngaba",
+    "latitude": -4.3896854,
+    "longitude": 15.3150742,
+    "tags": {
+      "highway": "trunk",
+      "junction": "roundabout",
+      "lanes": "1",
+      "name": "Rond-Point Ngaba",
+      "oneway": "yes",
+      "ref": "RN1",
+      "source": "Cellule Infrastructure",
+      "source:date": "2018/09/18"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 1061550376,
+    "feature_type": "roundabout",
+    "name": "Rond-point OSM 1061550376",
+    "latitude": -4.3614385,
+    "longitude": 15.2546342,
+    "tags": {
+      "highway": "tertiary",
+      "junction": "roundabout",
+      "oneway": "yes"
+    }
+  },
+  {
+    "osm_type": "way",
+    "osm_id": 1347355874,
+    "feature_type": "roundabout",
+    "name": "Rond Point Hilton",
+    "latitude": -4.2479975,
+    "longitude": 15.3029231,
+    "tags": {
+      "highway": "residential",
+      "junction": "roundabout",
+      "name": "Rond Point Hilton",
+      "oneway": "yes"
+    }
+  }
+]

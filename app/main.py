@@ -11,12 +11,15 @@ from app.database import (
     engine,
     get_db,
 )
+
 from app.models import (
     Incident,
     Intersection,
+    OSMFeature,
     TrafficLight,
     TrafficObservation,
 )
+
 from app.schemas import (
     IncidentCreate,
     IncidentStatusUpdate,
@@ -25,6 +28,7 @@ from app.schemas import (
     TrafficLightUpdate,
     TrafficObservationCreate,
 )
+
 from app.security import verify_api_key
 
 
@@ -75,9 +79,23 @@ def traffic_light_to_dict(row):
     }
 
 
+def osm_feature_to_dict(row):
+    return {
+        "id": row.id,
+        "osm_type": row.osm_type,
+        "osm_id": row.osm_id,
+        "feature_type": row.feature_type,
+        "name": row.name,
+        "latitude": row.latitude,
+        "longitude": row.longitude,
+    }
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    Base.metadata.create_all(bind=engine)
+    Base.metadata.create_all(
+        bind=engine
+    )
 
     db = SessionLocal()
 
@@ -110,7 +128,7 @@ app = FastAPI(
         "Urban mobility and intelligent traffic "
         "management platform for Kinshasa"
     ),
-    version="0.4.0",
+    version="0.5.0",
     lifespan=lifespan,
 )
 
@@ -119,7 +137,7 @@ app = FastAPI(
 def home():
     return {
         "project": "KinTraffic",
-        "version": "0.4.0",
+        "version": "0.5.0",
         "status": "online",
         "city": "Kinshasa",
         "database": "PostgreSQL",
@@ -129,6 +147,7 @@ def home():
             "incidents",
             "traffic lights",
             "analytics",
+            "OpenStreetMap geographic data",
         ],
     }
 
@@ -137,7 +156,9 @@ def home():
 def health(
     db: Session = Depends(get_db),
 ):
-    db.execute(text("SELECT 1"))
+    db.execute(
+        text("SELECT 1")
+    )
 
     return {
         "status": "healthy",
@@ -169,7 +190,8 @@ def get_intersection(
     row = (
         db.query(Intersection)
         .filter(
-            Intersection.id == intersection_id
+            Intersection.id
+            == intersection_id
         )
         .first()
     )
@@ -190,7 +212,9 @@ def get_intersection(
 def create_intersection(
     payload: IntersectionCreate,
     db: Session = Depends(get_db),
-    api_key: str = Depends(verify_api_key),
+    api_key: str = Depends(
+        verify_api_key
+    ),
 ):
     row = Intersection(
         name=payload.name,
@@ -235,7 +259,9 @@ def get_traffic(
 def create_traffic_observation(
     payload: TrafficObservationCreate,
     db: Session = Depends(get_db),
-    api_key: str = Depends(verify_api_key),
+    api_key: str = Depends(
+        verify_api_key
+    ),
 ):
     intersection = (
         db.query(Intersection)
@@ -277,7 +303,9 @@ def congestion(
 ):
     total = (
         db.query(
-            func.count(TrafficObservation.id)
+            func.count(
+                TrafficObservation.id
+            )
         )
         .scalar()
         or 0
@@ -332,7 +360,9 @@ def get_incidents(
 def create_incident(
     payload: IncidentCreate,
     db: Session = Depends(get_db),
-    api_key: str = Depends(verify_api_key),
+    api_key: str = Depends(
+        verify_api_key
+    ),
 ):
     intersection = (
         db.query(Intersection)
@@ -367,12 +397,16 @@ def create_incident(
     }
 
 
-@app.patch("/incidents/{incident_id}/status")
+@app.patch(
+    "/incidents/{incident_id}/status"
+)
 def update_incident_status(
     incident_id: int,
     payload: IncidentStatusUpdate,
     db: Session = Depends(get_db),
-    api_key: str = Depends(verify_api_key),
+    api_key: str = Depends(
+        verify_api_key
+    ),
 ):
     row = (
         db.query(Incident)
@@ -391,8 +425,8 @@ def update_incident_status(
     row.status = payload.status
 
     if payload.status == "resolved":
-        row.resolved_at = datetime.now(
-            timezone.utc
+        row.resolved_at = (
+            datetime.now(timezone.utc)
         )
 
     elif row.resolved_at is not None:
@@ -430,7 +464,9 @@ def get_traffic_lights(
 def create_traffic_light(
     payload: TrafficLightCreate,
     db: Session = Depends(get_db),
-    api_key: str = Depends(verify_api_key),
+    api_key: str = Depends(
+        verify_api_key
+    ),
 ):
     intersection = (
         db.query(Intersection)
@@ -484,12 +520,16 @@ def create_traffic_light(
     }
 
 
-@app.patch("/traffic-lights/{traffic_light_id}")
+@app.patch(
+    "/traffic-lights/{traffic_light_id}"
+)
 def update_traffic_light(
     traffic_light_id: int,
     payload: TrafficLightUpdate,
     db: Session = Depends(get_db),
-    api_key: str = Depends(verify_api_key),
+    api_key: str = Depends(
+        verify_api_key
+    ),
 ):
     row = (
         db.query(TrafficLight)
@@ -529,6 +569,42 @@ def update_traffic_light(
     }
 
 
+@app.get("/map/features")
+def get_map_features(
+    feature_type: str | None = None,
+    db: Session = Depends(get_db),
+):
+    query = db.query(
+        OSMFeature
+    )
+
+    if feature_type:
+        query = query.filter(
+            OSMFeature.feature_type
+            == feature_type
+        )
+
+    rows = (
+        query
+        .order_by(OSMFeature.id)
+        .all()
+    )
+
+    features = [
+        osm_feature_to_dict(row)
+        for row in rows
+    ]
+
+    return {
+        "source": "OpenStreetMap",
+        "attribution": (
+            "© OpenStreetMap contributors"
+        ),
+        "count": len(features),
+        "features": features,
+    }
+
+
 @app.get("/analytics/summary")
 def analytics_summary(
     db: Session = Depends(get_db),
@@ -543,7 +619,9 @@ def analytics_summary(
 
     observations = (
         db.query(
-            func.count(TrafficObservation.id)
+            func.count(
+                TrafficObservation.id
+            )
         )
         .scalar()
         or 0
@@ -563,7 +641,10 @@ def analytics_summary(
         )
         .filter(
             Incident.status.in_(
-                ["reported", "confirmed"]
+                [
+                    "reported",
+                    "confirmed",
+                ]
             )
         )
         .scalar()
@@ -573,6 +654,14 @@ def analytics_summary(
     traffic_lights = (
         db.query(
             func.count(TrafficLight.id)
+        )
+        .scalar()
+        or 0
+    )
+
+    osm_features = (
+        db.query(
+            func.count(OSMFeature.id)
         )
         .scalar()
         or 0
@@ -593,8 +682,12 @@ def analytics_summary(
         "incidents": incidents,
         "active_incidents": active_incidents,
         "traffic_lights": traffic_lights,
+        "osm_features": osm_features,
         "average_speed": (
-            round(float(average_speed), 2)
+            round(
+                float(average_speed),
+                2,
+            )
             if average_speed is not None
             else None
         ),
