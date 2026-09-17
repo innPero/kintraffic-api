@@ -34,6 +34,7 @@ from app.schemas import (
 
 from app.security import verify_admin_key, verify_ingest_key
 from app.security_middleware import SecurityMiddleware
+from app.edge import router as edge_router
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -139,6 +140,8 @@ app = FastAPI(
 )
 
 
+
+app.include_router(edge_router)
 
 app.add_middleware(SecurityMiddleware)
 

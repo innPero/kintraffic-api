@@ -1,5 +1,6 @@
 from sqlalchemy import (
     BigInteger,
+    Boolean,
     Column,
     DateTime,
     Float,
@@ -206,4 +207,172 @@ class OSMFeature(Base):
         DateTime(timezone=True),
         server_default=func.now(),
         nullable=False,
+    )
+
+
+
+class EdgeNode(Base):
+    __tablename__ = "edge_nodes"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    edge_id = Column(
+        String(80),
+        unique=True,
+        nullable=False,
+        index=True,
+    )
+
+    intersection_id = Column(
+        Integer,
+        ForeignKey("intersections.id"),
+        nullable=False,
+        index=True,
+    )
+
+    site_name = Column(
+        String(150),
+        nullable=False,
+    )
+
+    schema_version = Column(
+        String(20),
+        nullable=False,
+        default="1.0",
+    )
+
+    source_kind = Column(
+        String(20),
+        nullable=True,
+    )
+
+    model_name = Column(
+        String(120),
+        nullable=True,
+    )
+
+    last_session_id = Column(
+        String(150),
+        nullable=True,
+    )
+
+    status = Column(
+        String(40),
+        nullable=False,
+        default="unknown",
+    )
+
+    last_data_valid = Column(
+        Boolean,
+        nullable=False,
+        default=False,
+    )
+
+    created_at = Column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        nullable=False,
+    )
+
+    last_seen = Column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        nullable=False,
+    )
+
+
+class EdgeSnapshot(Base):
+    __tablename__ = "edge_snapshots"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    edge_node_id = Column(
+        Integer,
+        ForeignKey("edge_nodes.id"),
+        nullable=False,
+        index=True,
+    )
+
+    intersection_id = Column(
+        Integer,
+        ForeignKey("intersections.id"),
+        nullable=False,
+        index=True,
+    )
+
+    sample_key = Column(
+        String(250),
+        unique=True,
+        nullable=False,
+        index=True,
+    )
+
+    session_id = Column(
+        String(150),
+        nullable=False,
+        index=True,
+    )
+
+    source_kind = Column(
+        String(20),
+        nullable=False,
+    )
+
+    data_origin = Column(
+        String(20),
+        nullable=False,
+        default="observed",
+    )
+
+    processed_at = Column(
+        DateTime(timezone=True),
+        nullable=False,
+        index=True,
+    )
+
+    received_at = Column(
+        DateTime(timezone=True),
+        server_default=func.now(),
+        nullable=False,
+        index=True,
+    )
+
+    video_time_s = Column(
+        Float,
+        nullable=False,
+    )
+
+    data_valid = Column(
+        Boolean,
+        nullable=False,
+    )
+
+    status = Column(
+        String(40),
+        nullable=False,
+    )
+
+    processing_ms = Column(
+        Float,
+        nullable=False,
+    )
+
+    signal = Column(
+        JSON,
+        nullable=False,
+    )
+
+    approaches = Column(
+        JSON,
+        nullable=False,
+    )
+
+    model_name = Column(
+        String(120),
+        nullable=False,
+    )
+
+    calibration_resolution = Column(
+        JSON,
+        nullable=True,
     )
