@@ -32,7 +32,7 @@ from app.schemas import (
     TrafficObservationCreate,
 )
 
-from app.security import verify_api_key
+from app.security import verify_admin_key, verify_ingest_key
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -273,7 +273,7 @@ def get_intersection(
 def create_intersection(
     payload: IntersectionCreate,
     db: Session = Depends(get_db),
-    api_key: str = Depends(verify_api_key),
+    api_key: str = Depends(verify_admin_key),
 ):
     row = Intersection(
         name=payload.name,
@@ -318,7 +318,7 @@ def get_traffic(
 def create_traffic_observation(
     payload: TrafficObservationCreate,
     db: Session = Depends(get_db),
-    api_key: str = Depends(verify_api_key),
+    api_key: str = Depends(verify_ingest_key),
 ):
     intersection = (
         db.query(Intersection)
@@ -417,7 +417,7 @@ def get_incidents(
 def create_incident(
     payload: IncidentCreate,
     db: Session = Depends(get_db),
-    api_key: str = Depends(verify_api_key),
+    api_key: str = Depends(verify_ingest_key),
 ):
     intersection = (
         db.query(Intersection)
@@ -459,7 +459,7 @@ def update_incident_status(
     incident_id: int,
     payload: IncidentStatusUpdate,
     db: Session = Depends(get_db),
-    api_key: str = Depends(verify_api_key),
+    api_key: str = Depends(verify_admin_key),
 ):
     row = (
         db.query(Incident)
@@ -517,7 +517,7 @@ def get_traffic_lights(
 def create_traffic_light(
     payload: TrafficLightCreate,
     db: Session = Depends(get_db),
-    api_key: str = Depends(verify_api_key),
+    api_key: str = Depends(verify_admin_key),
 ):
     intersection = (
         db.query(Intersection)
@@ -578,7 +578,7 @@ def update_traffic_light(
     traffic_light_id: int,
     payload: TrafficLightUpdate,
     db: Session = Depends(get_db),
-    api_key: str = Depends(verify_api_key),
+    api_key: str = Depends(verify_admin_key),
 ):
     row = (
         db.query(TrafficLight)
