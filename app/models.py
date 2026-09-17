@@ -321,7 +321,6 @@ class EdgeSnapshot(Base):
     data_origin = Column(
         String(20),
         nullable=False,
-        default="observed",
     )
 
     processed_at = Column(

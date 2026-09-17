@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from datetime import datetime, timezone
 
 from fastapi import APIRouter, Depends, HTTPException, Response
@@ -69,6 +70,26 @@ def ingest_edge_telemetry(
     db: Session = Depends(get_db),
     api_key: str = Depends(verify_ingest_key),
 ):
+    if payload.data_origin == "synthetic_test":
+        allow_synthetic = (
+            os.getenv(
+                "KINTRAFFIC_ALLOW_SYNTHETIC_EDGE",
+                "",
+            )
+            .strip()
+            .lower()
+            in {"1", "true", "yes"}
+        )
+
+        if not allow_synthetic:
+            raise HTTPException(
+                status_code=403,
+                detail=(
+                    "Synthetic Edge telemetry "
+                    "is disabled"
+                ),
+            )
+
     intersection = (
         db.query(Intersection)
         .filter(
