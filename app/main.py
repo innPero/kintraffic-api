@@ -33,6 +33,7 @@ from app.schemas import (
 )
 
 from app.security import verify_admin_key, verify_ingest_key
+from app.security_middleware import SecurityMiddleware
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -133,11 +134,13 @@ app = FastAPI(
         "Urban mobility and intelligent traffic "
         "management platform for Kinshasa"
     ),
-    version="0.6.0",
+    version="0.6.1",
     lifespan=lifespan,
 )
 
 
+
+app.add_middleware(SecurityMiddleware)
 
 app.add_middleware(
     TrustedHostMiddleware,
@@ -197,7 +200,7 @@ app.mount(
 def home():
     return {
         "project": "KinTraffic",
-        "version": "0.6.0",
+        "version": "0.6.1",
         "status": "online",
         "city": "Kinshasa",
         "database": "PostgreSQL",
@@ -224,7 +227,7 @@ def health(
     return {
         "status": "healthy",
         "database": "connected",
-        "version": "0.6.0",
+        "version": "0.6.1",
     }
 
 
